@@ -1,0 +1,171 @@
+<!-- created by yasai
+2018/06/27 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Awesome Mosaic</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <link href="" rel="stylesheet">
+
+
+  <link rel="icon" href="image/1.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="image/1.ico" type="image/x-icon">
+
+  <link rel="stylesheet" type="text/css" href="fonts.css">
+
+  <script type="text/javascript" src="js/dat.gui.min.js"></script>
+  <script type="text/javascript" src="js/p5.min.js"></script>
+  <script type="text/javascript" src="js/p5.dom.min.js"></script>
+
+
+  <style type="text/css">
+  *{
+    margin:0;
+    padding:0;
+  }
+
+
+  #credits {
+    font-size: 12px;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    opacity: 0.8;
+    color: #939393;
+    max-width: 70%;
+    text-align: right;
+  }
+
+  #img-path {
+    display: none;
+  }
+  .progress-box{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+  .progress-bar{
+    height: 3px;
+    width: 0%;
+    background-color: #e61d5f;
+  }
+  .save-gif-tip{
+    display: none;
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+  }
+</style>
+</head>
+<body>
+
+  <div id="credits"> 
+
+    <div class ="iconlink"> 
+      <div class = "socaial">
+        <span><a class="icon-weibo" href="https://weibo.com/psaiaevegas/profile?rightmod=1&wvr=6&mod=personnumber"  target="_blank"  data-icon="&#xe906;" ></a></span>
+        <span><a class="icon-zhihu" href="https://www.zhihu.com/people/wang-ya-sai/activities"  target="_blank"  data-icon="&#xe907;"></a></span>
+        <span><a class="icon-instagram" href="http://instagram.com/yasaisai"  target="_blank"  data-icon="&#xe903;"></a></span>
+        <span><a class="icon-twitter" href="https://twitter.com/yasai_wang"  target="_blank"  data-icon="&#xe905;"></a></span>
+      </div>
+      <div class = "socaial" style="color:#FFFFFF;font-size: 10pt; margin-right:10px;margin-top: -180px">Created by @yasai </div>
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript">
+    var type;
+    var type_;
+    var options ={  
+      Background: '#01731f',
+      Color: '#ffdb45',
+      Rscale: 27,
+      Gscale: 95,
+      Bscale: 31,
+      Size: 120,    
+      Nums: 130,
+      noiseScale: 0.43,
+      Shape: 'Wave',
+      Padding:30,
+    }
+
+
+    var gui, config;
+    var colorControl,rControl,gControl,bControl,noiseControl,SizeControl,RandomControl,shapeControl,PaddingControl,NumsControl;
+
+    window.onload = function() {
+      document.getElementById('defaultCanvas0').onmousedown = function(e) {
+        // 阻止默认行为并取消冒泡
+        if(typeof e.preventDefault === 'function') {
+          e.preventDefault();
+          e.stopPropagation();
+        }else {
+          e.returnValue = false;
+          e.cancelBubble = true;
+        }
+      }
+      gui = new dat.GUI();
+
+
+  //folder1
+  var folder1 = gui.addFolder('Controls');
+
+
+  shapeControl = folder1.add(options, 'Shape', ['Wave','Annulus','Rectangle', 'Circle'] );
+  shapeControl.onChange(draw);
+  shapeControl.listen();
+
+  var bgcolorControl = folder1.addColor(options, 'Background');
+  bgcolorControl.onChange(draw);
+
+  colorControl = folder1.addColor(options, 'Color');
+  colorControl.onChange(draw);
+
+  rControl = folder1.add(options, 'Rscale',-100,100);
+  rControl.onChange(draw);
+  rControl.listen();
+
+  gControl = folder1.add(options, 'Gscale',-100,100);
+  gControl.onChange(draw);
+  gControl.listen();
+
+  bControl = folder1.add(options, 'Bscale',-100,100);
+  bControl.onChange(draw);
+  bControl.listen();
+
+  noiseControl = folder1.add(options, 'noiseScale',0,1);
+  noiseControl.onChange(draw);
+  noiseControl.listen();
+
+
+  SizeControl = folder1.add(options, 'Size',1,200);
+  SizeControl.onChange(draw);
+  SizeControl.listen();
+
+  NumsControl = folder1.add(options, 'Nums',1,180);
+  NumsControl.onChange(draw);
+  NumsControl.listen();
+
+  PaddingControl = folder1.add(options, 'Padding',0,100);
+  PaddingControl.onChange(draw);
+  PaddingControl.listen();
+
+  folder1.open();
+};
+
+
+
+</script>
+
+<script type="text/javascript" src="js/sketch.js"></script>
+</body>
+
+</html>
+
