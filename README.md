@@ -9,13 +9,6 @@
 📝生成的图片可以任意使用   
       
 
-     
-        
-
-[](https://github.com/wangyasai/Awesome-Mosaic/blob/gh-pages/image/1.gif) 
-🔗[**Play a ball**](https://wangyasai.github.io/Play-a-ball/  )    
-🤩[了解更多](https://weibo.com/1757693565/Gtyq404gr)  
-
       
       
         
@@ -23,7 +16,7 @@
 
 ## 其他工具
 ![](https://github.com/wangyasai/Awesome-Mosaic/blob/gh-pages/image/mosaic.gif)  
-🔗[**Awesome Masoic**](https://wangyasai.github.io/Awesome-Mosaic/)    
+🔗[**Play a ball**](https://wangyasai.github.io/Awesome-Mosaic/)    
 🤩[了解更多](https://weibo.com/1757693565/Gntnug9cW?type=comment#_rnd1533687117270)   
 
       
