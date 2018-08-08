@@ -2,7 +2,7 @@
 
 ![](https://github.com/wangyasai/Awesome-Mosaic/blob/gh-pages/image/1.gif)   
 ![](https://github.com/wangyasai/Awesome-Mosaic/blob/gh-pages/image/2.gif)   
-![\](https://github.com/wangyasai/Awesome-Mosaic/blob/gh-pages/image/3.gif)    
+![](https://github.com/wangyasai/Awesome-Mosaic/blob/gh-pages/image/3.gif)    
 
 🔗工具链接: https://wangyasai.github.io/Awesome-Mosaic/    
 🤩了解更多: https://weibo.com/1757693565/Gntnug9cW?type=comment#_rnd1533687117270     
