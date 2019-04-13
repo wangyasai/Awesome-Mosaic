@@ -1,82 +1,93 @@
 <!-- created by yasai
-2018/06/27 -->
+  2018/06/27 -->
 
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Awesome Mosaic</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-  <link href="" rel="stylesheet">
-
-
-  <link rel="icon" href="image/1.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="image/1.ico" type="image/x-icon">
-
-  <link rel="stylesheet" type="text/css" href="fonts.css">
-
-  <script type="text/javascript" src="js/dat.gui.min.js"></script>
-  <script type="text/javascript" src="js/p5.min.js"></script>
-  <script type="text/javascript" src="js/p5.dom.min.js"></script>
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Awesome Mosaic</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
 
 
-  <style type="text/css">
-  *{
-    margin:0;
-    padding:0;
-  }
+    <link rel="icon" href="image/1.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="image/1.ico" type="image/x-icon">
+
+    <link rel="stylesheet" type="text/css" href="fonts.css">
+
+    <script type="text/javascript" src="js/dat.gui.min.js"></script>
+    <script type="text/javascript" src="js/p5.min.js"></script>
+    <script type="text/javascript" src="js/p5.dom.min.js"></script>
 
 
-  #credits {
-    font-size: 12px;
-    position: absolute;
-    bottom: -25px;
-    right: 15px;
-    opacity: 0.6;
-    color: #ffffff;
-    max-width: 70%;
-    text-align: right;
-    line-height: 20px;
-  }
-  .logo {
-    font-size: 12px;
-    position: absolute;
-    bottom: 80px;
-    left: 25px;
-    color: #ffffff;
-    max-width: 70%;
-    line-height: 20px;
-    opacity: 0.7;
-  }
-
-.iconlink{
-  bottom: 50px;
-  margin-right: 0px;
- }
- #img-path {
-  display: none;
-}
-
-</style>
-</head>
-<body>
+    <style type="text/css">
+      *{
+        margin:0;
+        padding:0;
+      }
 
 
- <div id="credits"> 
+      #credits {
+        font-size: 12px;
+        position: absolute;
+        bottom: -25px;
+        right: 15px;
+        opacity: 0.6;
+        color: #ffffff;
+        max-width: 70%;
+        text-align: right;
+        line-height: 20px;
+      }
+      .logo {
+        font-size: 12px;
+        position: absolute;
+        bottom: 80px;
+        left: 25px;
+        color: #ffffff;
+        max-width: 70%;
+        line-height: 20px;
+        opacity: 0.7;
+      }
+
+      .iconlink{
+        bottom: 50px;
+        margin-right: 0px;
+      }
+      #img-path {
+        display: none;
+      }
+
+    </style>
+    
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?44f8fa2f0b239ea3093628142486b48a";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+
+  </head>
+  <body>
+
+
+   <div id="credits"> 
     <div class = "socaial" style="margin-right:10px">Created by @Yasai</div>
-  <div class = "socaial" style="margin-right:10px; margin-bottom: -40px">©️All my products may be used in both personal and commercial projects   </div>
-  <div class ="iconlink"> 
-    <span><a class="icon-weibo" href="https://weibo.com/psaiaevegas/profile?rightmod=1&wvr=6&mod=personnumber"  target="_blank"  data-icon="&#xe906;" ></a></span>
-    <span><a class="icon-zhihu" href="https://www.zhihu.com/people/wang-ya-sai/activities"  target="_blank"  data-icon="&#xe907;"></a></span>
-    <span><a class="icon-instagram" href="http://instagram.com/yasaisai"  target="_blank"  data-icon="&#xe903;"></a></span>
-    <span><a class="icon-twitter" href="https://twitter.com/yasai_wang"  target="_blank"  data-icon="&#xe905;"></a></span>
+    <div class = "socaial" style="margin-right:10px; margin-bottom: -40px">©️All my products may be used in both personal and commercial projects   </div>
+    <div class ="iconlink"> 
+      <span><a class="icon-weibo" href="https://weibo.com/psaiaevegas/profile?rightmod=1&wvr=6&mod=personnumber"  target="_blank"  data-icon="&#xe906;" ></a></span>
+      <span><a class="icon-zhihu" href="https://www.zhihu.com/people/wang-ya-sai/activities"  target="_blank"  data-icon="&#xe907;"></a></span>
+      <span><a class="icon-instagram" href="http://instagram.com/yasaisai"  target="_blank"  data-icon="&#xe903;"></a></span>
+      <span><a class="icon-twitter" href="https://twitter.com/yasai_wang"  target="_blank"  data-icon="&#xe905;"></a></span>
+    </div>
+
   </div>
 
-</div>
-
-<div class = "logo" style="margin-left:10px; margin-bottom: -40px; "><a href = "https://wangyasai.github.io/designtools.html"><img src="logo.png" style ="width: 40px"></a></div>
+  <div class = "logo" style="margin-left:10px; margin-bottom: -40px; "><a href = "https://wangyasai.github.io/designtools.html"><img src="logo.png" style ="width: 40px"></a></div>
 
 
   <script type="text/javascript">
