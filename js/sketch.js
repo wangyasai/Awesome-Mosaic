@@ -4,7 +4,7 @@
 var noise;
 var angle = 0;
 var targetSize = 15;
-var targetPadding = 2;
+var targetSpacing = 2;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -16,29 +16,29 @@ function draw() {
   background(options.Background);
   if(options.Shape == 'Rectangle'){
    options.Size += (targetSize - options.Size)*0.5;
-   options.Padding += (targetPadding-options.Padding)*0.5;
+   options.Spacing += (targetSpacing-options.Spacing)*0.5;
    if(mouseIsPressed){
     targetSize = options.Size;
-    targetPadding = options.Padding;
+    targetSpacing = options.Spacing;
   }
   rectangle();
 }else if(options.Shape == 'Circle'){
   options.Size += (targetSize - options.Size)*0.5;
-  options.Padding += (targetPadding-options.Padding)*0.5;
+  options.Spacing += (targetSpacing-options.Spacing)*0.5;
   if(mouseIsPressed){
    targetSize = options.Size;
-   targetPadding = options.Padding;
-  }
-  circle();
+   targetSpacing = options.Spacing;
+ }
+ circle();
 }else if(options.Shape == 'Wave'){
-   huan(0);
-   targetSize = 15;
-   targetPadding = 2;
+ huan(0);
+ targetSize = 15;
+ targetSpacing = 2;
 }else if(options.Shape == 'Annulus'){
-   huan(options.Size);
-   targetSize = 15;
-   targetPadding = 2;
-  } 
+ huan(options.Size);
+ targetSize = 15;
+ targetSpacing = 2;
+} 
 }
 
 
@@ -53,14 +53,14 @@ function hexToRgb(hex) {
 
 
 function circle(){
-  for (var y = 0; y < height; y +=options.Padding+options.Size) {
-    for (var x = 0; x < width; x += options.Padding+options.Size) {
+  for (var y = 0; y < height; y +=options.Spacing+options.Size) {
+    for (var x = 0; x < width; x += options.Spacing+options.Size) {
       var n = noise(x *options.noiseScale, y *options.noiseScale, frameCount * 0.05);
 
       var rgb = hexToRgb(options.Color);
-      var r = map(n,0,1,rgb.r,rgb.r+options.Rscale);
-      var g = map(n,0,1,rgb.g,rgb.g+options.Gscale);
-      var b = map(n,0,1,rgb.b,rgb.b+options.Bscale);
+      var r = rgb.r + n *27;
+      var g = rgb.g + n *95;
+      var b = rgb.b + n *31;
       fill(r,g,b);
 
       noStroke();
@@ -75,14 +75,15 @@ function circle(){
 
 
 function rectangle(){
- for (var y = 0; y < height; y +=options.Padding+options.Size) {
-  for (var x = 0; x < width; x += options.Padding+options.Size) {
+  for (var y = 0; y < height; y +=options.Spacing+options.Size) {
+    for (var x = 0; x < width; x += options.Spacing+options.Size) {
     var  n = noise(x *options.noiseScale, y *options.noiseScale, frameCount * 0.05);
 
     var rgb = hexToRgb(options.Color);
-    var r = map(n,0,1,rgb.r,rgb.r+options.Rscale);
-    var g = map(n,0,1,rgb.g,rgb.g+options.Gscale);
-    var b = map(n,0,1,rgb.b,rgb.b+options.Bscale);
+    var r = rgb.r + n *27;
+    var g = rgb.g + n *95;
+    var b = rgb.b + n *31;
+    fill(r,g,b);
 
     noStroke();
     push();
@@ -99,14 +100,16 @@ function rectangle(){
 
 
 function huan(s){
-  for (var y = 1; y < height*2; y += 2*(options.Padding+options.Size)) {
+  for (var y = 1; y < height*2; y += 2*(options.Spacing+options.Size)) {
     for (var x = 1; x < options.Nums+1; x++) {
       push();
       var n = noise(x *options.noiseScale, y *options.noiseScale, frameCount * 0.05);
+
+
       var rgb = hexToRgb(options.Color);
-      var r = map(n,0,1,rgb.r,rgb.r+options.Rscale);
-      var g = map(n,0,1,rgb.g,rgb.g+options.Gscale);
-      var b = map(n,0,1,rgb.b,rgb.b+options.Bscale);
+      var r = rgb.r + n *27;
+      var g = rgb.g + n *95;
+      var b = rgb.b + n *31;
       stroke(r,g,b);
       noFill();
       strokeCap(SQUARE);
@@ -116,7 +119,7 @@ function huan(s){
       strokeWeight(w);
 
       var angle = TWO_PI/options.Nums;
-      var space = TWO_PI/(1/options.Padding)/10000;
+      var space = TWO_PI/(1/options.Spacing)/10000;
       if(options.Nums != 1){
         arc(0,0,200+y,200+y,x*angle,(x+1)*angle-space);
       }else {
