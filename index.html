@@ -124,11 +124,13 @@
 
         var color =  random(['#E632A5', '#580AFF','#005CFF','#009788']);
         colorControl.setValue(color);
+
       },
       Save : function(){
         saveFrames("Awesome-Mosaic", "png", 1, 1);
       },
-    }
+
+      }
 
 
 
@@ -180,8 +182,8 @@
 
   RandomControl = folder1.add(options, 'Random');
 
-  var SaveControl = folder1.add(options, 'Save');
 
+  var SaveControl = folder1.add(options, 'Save');
   folder1.open();
 };
 
