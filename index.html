@@ -25,7 +25,7 @@
     <style type="text/css">
       *{
         margin:0;
-        padding:0;
+        Spacing:0;
       }
 
 
@@ -96,19 +96,41 @@
     var options ={  
       Background: '#01731f',
       Color: '#ffdb45',
-      Rscale: 27,
-      Gscale: 95,
-      Bscale: 31,
       Size: 120,    
       Nums: 130,
       noiseScale: 0.43,
       Shape: 'Wave',
-      Padding:30,
+      Spacing:30,
+
+      Random: function () { 
+        var size = random(50,100);
+        SizeControl.setValue(size);
+
+        var nums = random(50,100);
+        NumsControl.setValue(nums);
+
+        var noise = random(0,1);
+        noiseControl.setValue(noise);
+
+        var spacing = random(10,50);
+        SpacingControl.setValue(spacing);
+
+        var shape = random( ['Wave','Rectangle', 'Circle']);
+        shapeControl.setValue(shape);
+
+
+        var Background =  random(['#580AFF','#00266b','#0a0a0a']);
+        bgcolorControl.setValue(Background);
+
+        var color =  random(['#E632A5', '#580AFF','#005CFF','#009788']);
+        colorControl.setValue(color);
+      }
     }
 
 
+
     var gui, config;
-    var colorControl,rControl,gControl,bControl,noiseControl,SizeControl,RandomControl,shapeControl,PaddingControl,NumsControl;
+    var colorControl,rControl,gControl,bControl,noiseControl,SizeControl,RandomControl,shapeControl,SpacingControl,NumsControl,bgcolorControl,RandomControl;
 
     window.onload = function() {
       document.getElementById('defaultCanvas0').onmousedown = function(e) {
@@ -130,42 +152,30 @@
 
   shapeControl = folder1.add(options, 'Shape', ['Wave','Annulus','Rectangle', 'Circle'] );
   shapeControl.onChange(draw);
-  shapeControl.listen();
 
-  var bgcolorControl = folder1.addColor(options, 'Background');
+
+  bgcolorControl = folder1.addColor(options, 'Background');
   bgcolorControl.onChange(draw);
 
   colorControl = folder1.addColor(options, 'Color');
   colorControl.onChange(draw);
 
-  rControl = folder1.add(options, 'Rscale',-100,100);
-  rControl.onChange(draw);
-  rControl.listen();
-
-  gControl = folder1.add(options, 'Gscale',-100,100);
-  gControl.onChange(draw);
-  gControl.listen();
-
-  bControl = folder1.add(options, 'Bscale',-100,100);
-  bControl.onChange(draw);
-  bControl.listen();
-
   noiseControl = folder1.add(options, 'noiseScale',0,1);
   noiseControl.onChange(draw);
-  noiseControl.listen();
 
 
   SizeControl = folder1.add(options, 'Size',1,200);
   SizeControl.onChange(draw);
-  SizeControl.listen();
+
 
   NumsControl = folder1.add(options, 'Nums',1,180);
   NumsControl.onChange(draw);
-  NumsControl.listen();
 
-  PaddingControl = folder1.add(options, 'Padding',0,100);
-  PaddingControl.onChange(draw);
-  PaddingControl.listen();
+
+  SpacingControl = folder1.add(options, 'Spacing',0,100);
+  SpacingControl.onChange(draw);
+
+  RandomControl = folder1.add(options, 'Random');
 
   folder1.open();
 };
