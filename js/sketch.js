@@ -57,33 +57,42 @@ function circle(){
     for (var x = 0; x < width; x += options.Spacing+options.Size) {
       var n = noise(x *options.noiseScale, y *options.noiseScale, frameCount * 0.05);
 
+      if(options.ColorMode == 'Single'){
+       var rgb = hexToRgb(options.Color);
+       fill(rgb.r,rgb.g,rgb.b);
+     }else{
       var rgb = hexToRgb(options.Color);
       var r = rgb.r + n *27;
       var g = rgb.g + n *95;
       var b = rgb.b + n *31;
       fill(r,g,b);
-
-      noStroke();
-      push();
-      translate(x, y);
-      translate(options.Size/2,options.Size/2);
-      ellipse(0, 0, options.Size, options.Size);
-      pop();
     }
+    noStroke();
+    push();
+    translate(x, y);
+    translate(options.Size/2,options.Size/2);
+    ellipse(0, 0, options.Size, options.Size);
+    pop();
   }
+}
 }
 
 
 function rectangle(){
   for (var y = 0; y < height; y +=options.Spacing+options.Size) {
     for (var x = 0; x < width; x += options.Spacing+options.Size) {
-    var  n = noise(x *options.noiseScale, y *options.noiseScale, frameCount * 0.05);
+      var  n = noise(x *options.noiseScale, y *options.noiseScale, frameCount * 0.05);
 
-    var rgb = hexToRgb(options.Color);
-    var r = rgb.r + n *27;
-    var g = rgb.g + n *95;
-    var b = rgb.b + n *31;
-    fill(r,g,b);
+      if(options.ColorMode == 'Single'){
+       var rgb = hexToRgb(options.Color);
+       fill(rgb.r,rgb.g,rgb.b);
+     }else{
+      var rgb = hexToRgb(options.Color);
+      var r = rgb.r + n *27;
+      var g = rgb.g + n *95;
+      var b = rgb.b + n *31;
+      fill(r,g,b);
+    }
 
     noStroke();
     push();
@@ -105,27 +114,31 @@ function huan(s){
       push();
       var n = noise(x *options.noiseScale, y *options.noiseScale, frameCount * 0.05);
 
-
+      if(options.ColorMode == 'Single'){
+       var rgb = hexToRgb(options.Color);
+       stroke(rgb.r,rgb.g,rgb.b);
+     }else{
       var rgb = hexToRgb(options.Color);
       var r = rgb.r + n *27;
       var g = rgb.g + n *95;
       var b = rgb.b + n *31;
       stroke(r,g,b);
-      noFill();
-      strokeCap(SQUARE);
+    }
+    noFill();
+    strokeCap(SQUARE);
 
-      translate(width/2, height/2);
-      var w = map(n,0,1,s,options.Size);
-      strokeWeight(w);
+    translate(width/2, height/2);
+    var w = map(n,0,1,s,options.Size);
+    strokeWeight(w);
 
-      var angle = TWO_PI/options.Nums;
-      var space = TWO_PI/(1/options.Spacing)/10000;
-      if(options.Nums != 1){
-        arc(0,0,200+y,200+y,x*angle,(x+1)*angle-space);
-      }else {
-        ellipse(0,0,y,y);
-      }
-      pop();
-    } 
-  }
+    var angle = TWO_PI/options.Nums;
+    var space = TWO_PI/(1/options.Spacing)/10000;
+    if(options.Nums != 1){
+      arc(0,0,200+y,200+y,x*angle,(x+1)*angle-space);
+    }else {
+      ellipse(0,0,y,y);
+    }
+    pop();
+  } 
+}
 }

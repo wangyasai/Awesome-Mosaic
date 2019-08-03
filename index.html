@@ -96,11 +96,13 @@
     var options ={  
       Background: '#01731f',
       Color: '#ffdb45',
+      ColorMode: 'Single',
       Size: 120,    
       Nums: 130,
       noiseScale: 0.43,
       Shape: 'Wave',
       Spacing:30,
+
 
       Random: function () { 
         var size = random(50,100);
@@ -130,12 +132,12 @@
         saveFrames("Awesome-Mosaic", "png", 1, 1);
       },
 
-      }
+    }
 
 
 
     var gui, config;
-    var colorControl,rControl,gControl,bControl,noiseControl,SizeControl,RandomControl,shapeControl,SpacingControl,NumsControl,bgcolorControl,RandomControl;
+    var colorControl,rControl,gControl,bControl,noiseControl,SizeControl,RandomControl,shapeControl,SpacingControl,NumsControl,bgcolorControl,RandomControl,colorModeControl;
 
     window.onload = function() {
       document.getElementById('defaultCanvas0').onmousedown = function(e) {
@@ -161,6 +163,10 @@
 
   bgcolorControl = folder1.addColor(options, 'Background');
   bgcolorControl.onChange(draw);
+
+
+  colorModeControl = folder1.add(options, 'ColorMode',['Single','Flicker']);
+  colorModeControl.onChange(draw);
 
   colorControl = folder1.addColor(options, 'Color');
   colorControl.onChange(draw);
